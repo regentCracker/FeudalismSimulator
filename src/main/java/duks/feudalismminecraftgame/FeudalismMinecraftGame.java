@@ -7,6 +7,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin {
     @Override
     public void onEnable() {
         //test
+        //2
     }
 
     @Override
