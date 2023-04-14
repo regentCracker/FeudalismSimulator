@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/ilay_menachem/Downloads/BuildTools.jar"
+    ]
+}

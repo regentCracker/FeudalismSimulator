@@ -1,5 +1,10 @@
 package duks.feudalismminecraftgame;
 
+import duks.feudalismminecraftgame.mods.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -11,6 +16,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class FeudalismMinecraftGame extends JavaPlugin implements Listener {
+    private ArrayList<Team> teams = new ArrayList<Team>();
+    private Mod mod;
 
     @Override
     public void onEnable() {
@@ -32,10 +39,15 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         double z = l.getZ();
         getServer().broadcastMessage(b+"");
     }
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e){
         System.out.println("some1 has joined");
         e.setJoinMessage(ChatColor.YELLOW+"Ilay 3 joined the game");
 
+    }
+
+    public ArrayList<Team> getTeams() {
+        return teams;
     }
 }
