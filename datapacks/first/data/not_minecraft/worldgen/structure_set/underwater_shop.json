@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "not_minecraft:underwater_shop",
+      "weight": 1,
+    }
+  ],
+  "placement": {
+    "salt": 19273671,
+    "spacing": 35,
+    "separation": 15,
+    "type": "random_spread"
+  }
+
+}

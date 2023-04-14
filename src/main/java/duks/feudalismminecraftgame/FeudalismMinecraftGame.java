@@ -3,12 +3,14 @@ package duks.feudalismminecraftgame;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.craftbukkit.v1_19_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
 
 public final class FeudalismMinecraftGame extends JavaPlugin implements Listener {
 
@@ -30,7 +32,11 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         double x = l.getX();
         double y = l.getY();
         double z = l.getZ();
-        getServer().broadcastMessage(b+"");
+        //getServer().broadcastMessage(b+"");
+        System.out.println(p.getClass());
+
+        CraftPlayer craftPlayer = (CraftPlayer) p;
+
     }
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e){
