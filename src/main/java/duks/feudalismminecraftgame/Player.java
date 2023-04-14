@@ -2,6 +2,7 @@ package duks.feudalismminecraftgame;
 
 import java.util.ArrayList;
 
+import duks.feudalismminecraftgame.Purchseables.Purchseable;
 import duks.feudalismminecraftgame.Purchseables.Abilities.Abilities;
 
 public class Player {
@@ -13,5 +14,11 @@ public class Player {
 
     }
 
-    public void Purchuse(ArrayList<)
+    public void Purchuse(ArrayList<Purchseable> purchseables){
+        int price = 0;
+        for (Purchseable p : purchseables){
+            price += p.getPrice();
+        }
+        
+    }
 }

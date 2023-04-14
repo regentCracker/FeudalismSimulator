@@ -26,7 +26,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
     }
 
     @Override
-    public void onDisable() {
+    public void onDisable(){
 
     }
     @EventHandler
