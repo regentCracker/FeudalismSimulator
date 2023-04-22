@@ -31,6 +31,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
     public void onDisable(){
 
     }
+    
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e){
         Block b = e.getBlock();
