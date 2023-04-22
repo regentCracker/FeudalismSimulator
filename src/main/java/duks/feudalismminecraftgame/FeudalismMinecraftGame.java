@@ -57,7 +57,26 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         
     }
 
-    public ArrayList<Team> getTeams() {
-        return teams;
+    public void addPlayerToTeam(Player p, String teamName){
+        for(Team t : teams){
+            if(t.getName().equals(teamName)){
+                t.addPlayer(p);
+                return;
+            }
+        }
+        Team t = new Team(teamName);
+        t.addPlayer(p);
+        teams.add(t);
+    }
+
+    public void removePlayerToTeam(Player p, String teamName){
+        for(Team t : teams){
+            if(t.getName().equals(teamName)){
+                t.removePlayer(p);
+                if(t.getPlayers().size()==0)
+                    teams.remove(t);
+                return;
+            }
+        }
     }
 }
