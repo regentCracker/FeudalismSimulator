@@ -32,7 +32,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
     public void onDisable(){
 
     }
-    
+
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e){
         Block b = e.getBlock();
@@ -52,7 +52,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
     public void onPlayerJoin(PlayerJoinEvent e){
         System.out.println("some1 has joined");
         e.setJoinMessage(ChatColor.YELLOW+"Ilay 3 joined the game");
-
+        
     }
 
     public ArrayList<Team> getTeams() {
