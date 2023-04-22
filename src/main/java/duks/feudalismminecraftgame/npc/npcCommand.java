@@ -12,6 +12,7 @@ import org.bukkit.craftbukkit.v1_19_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+//test
 public class npcCommand implements CommandExecutor {
     JavaPlugin plugin;
     public npcCommand(JavaPlugin plugin){
