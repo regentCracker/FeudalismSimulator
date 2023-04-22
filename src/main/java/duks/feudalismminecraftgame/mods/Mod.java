@@ -5,8 +5,8 @@ import org.bukkit.event.Event;
 public abstract class Mod {
 
     // needs correction
-    @EventHandler
+    /*@EventHandler
     public void onWinConditionMet(Event event){
         
-    }
+    }*/
 }

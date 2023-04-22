@@ -11,8 +11,8 @@ public class Team {
 
     //
     public void Purchuse(){
-        for (Player p : players){
+        /*for (Player p : players){
             p.Purchuse(Cart);
-        }
+        }*/
     }
 }
