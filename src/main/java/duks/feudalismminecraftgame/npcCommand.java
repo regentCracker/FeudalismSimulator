@@ -1,7 +1,7 @@
 package duks.feudalismminecraftgame;
 
 
-import net.minecraft.server.level.ServerPlayer;
+//import net.minecraft.server.level.ServerPlayer;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,8 +16,9 @@ public class npcCommand implements CommandExecutor {
         if(sender instanceof Player){
             CraftPlayer craftPlayer = (CraftPlayer) sender;
             craftPlayer.getHandle();
-            ServerPlayer npc = new ServerPlayer();
+            //ServerPlayer npc = new ServerPlayer();
         }
 
+        return true;
     }
 }
