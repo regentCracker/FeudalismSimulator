@@ -1,4 +1,4 @@
-package duks.feudalismminecraftgame;
+package duks.feudalismminecraftgame.npc;
 
 
 //import net.minecraft.server.level.ServerPlayer;
