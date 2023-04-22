@@ -5,6 +5,7 @@ import duks.feudalismminecraftgame.mods.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import duks.feudalismminecraftgame.npc.npcCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -25,6 +26,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
     public void onEnable() {
         System.out.println("ok");
         getServer().getPluginManager().registerEvents(this, this);
+        this.getCommand("npc").setExecutor(new npcCommand(this));
     }
 
     @Override
@@ -43,7 +45,8 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         //getServer().broadcastMessage(b+"");
         System.out.println(p.getClass());
 
-        CraftPlayer craftPlayer = (CraftPlayer) p;
+        //CraftPlayer craftPlayer = (CraftPlayer) p;
+        getServer().broadcastMessage("die cvar");
 
     }
 
