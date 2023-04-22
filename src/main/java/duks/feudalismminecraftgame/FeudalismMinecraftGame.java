@@ -1,4 +1,3 @@
-//bruh moment
 package duks.feudalismminecraftgame;
 
 import duks.feudalismminecraftgame.mods.*;
