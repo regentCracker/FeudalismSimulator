@@ -15,37 +15,64 @@ public class Party implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+        //check if sender is a player
         if(!(sender instanceof Player)){
             return true;
         }
 
-        if(args.length<=0){
+        //checks if there are engouth arguments
+        else if(args.length<=0){
             sender.sendMessage("need arguments (only you can see this msg)");
             return true;
         }
+
+        //leave party
         if(args[0].toLowerCase().equals("leave")){
             duks.feudalismminecraftgame.Party.removePlayerFromParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ),plugin);
             sender.sendMessage("you left the party (only you can see this msg)");
         }
-        else if(args[0].toLowerCase().equals("join")){
-            if(args.length<=1){
-                sender.sendMessage("missing arguments (only you can see this msg)");
-                return true;
-            }
-            String playerName = args[1];
-            Player player = plugin.getServer().getPlayer(playerName);
-            plugin.getServer().broadcastMessage(duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId())+"");
-            duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId());
-            duks.feudalismminecraftgame.Party party = fPlayer.getParty();
-            duks.feudalismminecraftgame.Party.addPlayerToParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ), party, plugin);
-            sender.sendMessage("added you to the party (only you can see this msg)");
-            sender.sendMessage(party.getUUID()+"");
-        }
+
+        //list party
         else if (args[0].toLowerCase().equals("list") || args[0].toLowerCase().equals("l")) {
             duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() );
             duks.feudalismminecraftgame.Party party = fPlayer.getParty();
             plugin.getServer().broadcastMessage(party.getMembers().toString());
             String s = fPlayer.getParty().getMembers().toString();
+        }
+
+        //checks if there are engouth arguments
+        if(args.length<=1){
+            sender.sendMessage("missing arguments (only you can see this msg)");
+            return true;
+        }
+
+        //invite
+        else if(args[0].toLowerCase().equals("invite")){
+            String inviteeName = args[1];
+            Player invitee = plugin.getServer().getPlayer(inviteeName);
+            duks.feudalismminecraftgame.Party party = sender.getParty();
+            duks.feudalismminecraftgame.Player fSender = duks.feudalismminecraftgame.Player.findPlayerByUUID(sender.getUniqueId());
+            duks.feudalismminecraftgame.Player fInvitee = duks.feudalismminecraftgame.Player.findPlayerByUUID(invitee.getUniqueId());
+            duks.feudalismminecraftgame.Party.addInvitee(fInvitee, party);
+
+            sender.sendMessage("you've invated "+inviteeName+" (only you can see this msg)");
+            sender.sendMessage(party.getUUID()+"");
+        }
+        
+        //join party
+        else if(args[0].toLowerCase().equals("join")){
+            String playerName = args[1];
+            Player player = plugin.getServer().getPlayer(playerName);
+            plugin.getServer().broadcastMessage(duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId())+"");
+            duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId());
+            duks.feudalismminecraftgame.Party party = fPlayer.getParty();
+            if(!(party.getInviteeList().contains(fPlayer))){
+                sender.sendMessage("you are not invited to this party (only you can see this msg)");
+                return true;
+            }
+            duks.feudalismminecraftgame.Party.addPlayerToParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ), party, plugin);
+            sender.sendMessage("added you to the party (only you can see this msg)");
+            sender.sendMessage(party.getUUID()+"");
         }
 
         return true;
