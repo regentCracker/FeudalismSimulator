@@ -13,7 +13,6 @@ public class Party {
 
     public static int counterCreated = 0;
     public Party(JavaPlugin plugin){
-        plugin.getServer().broadcastMessage("party msg called");
         this.plugin = plugin;
         this.UUID = counterCreated;
         counterCreated++;
@@ -24,7 +23,7 @@ public class Party {
         players.add(player);
     }
 
-    public void removePlayer(Player player){
+    private void removePlayer(Player player){
         players.remove(player);
     }
 
@@ -47,6 +46,7 @@ public class Party {
     static public void init(){
     }
 
+    //to create a new party use party=null
     static public void addPlayerToParty(duks.feudalismminecraftgame.Player player, Party party, JavaPlugin plugin){
         if(party!=null) {
             party.addPlayer(player);
@@ -62,18 +62,13 @@ public class Party {
     static public void removePlayerFromParty(duks.feudalismminecraftgame.Player player, JavaPlugin plugin){
         Party party = player.getParty();
         ArrayList<Player> members = party.getMembers();
+
         if(members.size()==1) {
-            OfflinePlayer offlinePlayer = player.getPlayer();
-            if(offlinePlayer.isOnline()) {
-                org.bukkit.entity.Player fPlayer = offlinePlayer.getPlayer();
-                fPlayer.sendMessage("you are already alone (only you can see this msg)");
-            }
             return;
         }
-        else{
-            player.getParty().removePlayer(player);
-            addPlayerToParty(player, null, plugin);
-        }
+
+        player.getParty().removePlayer(player);
+        addPlayerToParty(player, null, plugin);
     }
 }
 

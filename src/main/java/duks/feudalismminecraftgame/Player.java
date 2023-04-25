@@ -25,7 +25,11 @@ public class Player {
     }
     public Party getParty(){return this.party;}
     public OfflinePlayer getPlayer(){
-        return plugin.getServer().getOfflinePlayer(this.uuid);
+        try {
+            return plugin.getServer().getOfflinePlayer(this.uuid);
+        }catch (Exception e){
+            return null;
+        }
     }
 
 
@@ -39,6 +43,11 @@ public class Player {
     @Override
     public String toString(){
         return getPlayer().getName();
+    }
+    public static Player createFakePlayer(JavaPlugin plugin){
+        Player fake = new Player(UUID.randomUUID(),plugin);
+
+        return fake;
     }
     public static Map<UUID, Player> uuidPlayerMap = new HashMap<>();//global dictionary with all players' uuid mapped to them.
     public static Player findPlayerByUUID(UUID uuid){
