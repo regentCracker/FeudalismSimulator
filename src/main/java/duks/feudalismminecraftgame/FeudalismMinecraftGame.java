@@ -29,8 +29,8 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         this.getCommand("party").setExecutor(new duks.feudalismminecraftgame.cmds.Party(this));
         this.getCommand("p").setExecutor(new duks.feudalismminecraftgame.cmds.Party(this));
 
-        //Stream<? extends Player> players = getServer().getOnlinePlayers().stream();
-        //players.map(x->(Player)x).forEach(y->artificialPlayerJoin(y));
+        Stream<? extends Player> players = getServer().getOnlinePlayers().stream();
+        players.map(x->(Player)x).forEach(y->artificialPlayerJoin(y));
 
         Party.init();
     }
