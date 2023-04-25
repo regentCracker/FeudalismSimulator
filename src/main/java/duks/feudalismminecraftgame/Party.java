@@ -14,6 +14,7 @@ public class Party {
     private JavaPlugin plugin;
 
     public static int counterCreated = 0;
+    
     public Party(JavaPlugin plugin){
         this.plugin = plugin;
         this.UUID = counterCreated;

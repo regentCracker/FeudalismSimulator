@@ -50,7 +50,8 @@ public class Party implements CommandExecutor {
         else if(args[0].toLowerCase().equals("invite")){
             String inviteeName = args[1];
             Player invitee = plugin.getServer().getPlayer(inviteeName);
-            duks.feudalismminecraftgame.Player fSender = duks.feudalismminecraftgame.Player.findPlayerByUUID(sender.getUniqueId());
+            Player pSender = plugin.getServer().getPlayer(sender.getName());
+            duks.feudalismminecraftgame.Player fSender = duks.feudalismminecraftgame.Player.findPlayerByUUID(pSender.getUniqueId());
             duks.feudalismminecraftgame.Player fInvitee = duks.feudalismminecraftgame.Player.findPlayerByUUID(invitee.getUniqueId());
             duks.feudalismminecraftgame.Party party = fSender.getParty();
             duks.feudalismminecraftgame.Party.addInvitee(fInvitee, party);
