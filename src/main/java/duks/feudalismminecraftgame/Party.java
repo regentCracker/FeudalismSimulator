@@ -42,9 +42,11 @@ public class Party {
             p.Purchuse(Cart);
         }*/
     }
-    static public void init(){//run when the plugin begins
 
+    //run when the plugin begins
+    static public void init(){
     }
+
     static public void addPlayerToParty(duks.feudalismminecraftgame.Player player, Party party, JavaPlugin plugin){
         if(party!=null) {
             party.addPlayer(player);
@@ -56,6 +58,7 @@ public class Party {
             Parties.add(p);
         }
     }
+
     static public void removePlayerFromParty(duks.feudalismminecraftgame.Player player, JavaPlugin plugin){
         Party party = player.getParty();
         ArrayList<Player> members = party.getMembers();
@@ -72,6 +75,5 @@ public class Party {
             addPlayerToParty(player, null, plugin);
         }
     }
-
 }
 
