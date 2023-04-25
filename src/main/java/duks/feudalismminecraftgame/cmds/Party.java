@@ -8,11 +8,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Party implements CommandExecutor {
     JavaPlugin plugin;
+
     public Party(JavaPlugin plugin){
         this.plugin=plugin;
     }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+        if(!(sender instanceof Player)){
+            return true;
+        }
 
 
         if(sender instanceof Player){
