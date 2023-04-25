@@ -62,7 +62,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         artificialPlayerJoin(player);
     }
     
-    private void artificialPlayerJoin(Player player){
+    public void artificialPlayerJoin(Player player){
         //party problem
         UUID uuid = player.getUniqueId();
         duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID(uuid);

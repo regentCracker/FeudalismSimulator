@@ -46,7 +46,7 @@ public class Player {
     }
     public static Player createFakePlayer(JavaPlugin plugin){
         Player fake = new Player(UUID.randomUUID(),plugin);
-
+        //plugin.artificialPlayerJoin(plugin.getServer().getOnlinePlayers().stream().findFirst());
         return fake;
     }
     public static Map<UUID, Player> uuidPlayerMap = new HashMap<>();//global dictionary with all players' uuid mapped to them.
