@@ -1,4 +1,5 @@
 package duks.feudalismminecraftgame;
+
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -9,6 +10,7 @@ public class Party {
     private int UUID = 0;
     private int score;
     private ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Player> inviteeList = new ArrayList<>();
     private JavaPlugin plugin;
 
     public static int counterCreated = 0;
@@ -35,7 +37,10 @@ public class Party {
         return players;
     }
 
-    //
+    public ArrayList<Player> getInviteeList(){
+        return inviteeList;
+    }
+    
     public void Purchuse(){
         /*for (Player p : players){
             p.Purchuse(Cart);
@@ -44,6 +49,14 @@ public class Party {
 
     //run when the plugin begins
     static public void init(){
+    }
+
+    static public void addInvitee(duks.feudalismminecraftgame.Player player, Party party){
+        party.inviteeList.add(player);
+    }
+
+    static public void addInvitee(duks.feudalismminecraftgame.Player player, Party party){
+        party.inviteeList.add(player);
     }
 
     //to create a new party use party=null
