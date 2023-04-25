@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Party {
     private static ArrayList<Party> Parties = new ArrayList<Party>();
-    private int UUID;
+    private int UUID = 0;
     private int score;
     private ArrayList<Player> players = new ArrayList<>();
     private JavaPlugin plugin;
@@ -15,7 +15,8 @@ public class Party {
     public Party(JavaPlugin plugin){
         plugin.getServer().broadcastMessage("party msg called");
         this.plugin = plugin;
-        this.UUID = ++counterCreated;
+        this.UUID = counterCreated;
+        counterCreated++;
         this.score = 0;
     }
 

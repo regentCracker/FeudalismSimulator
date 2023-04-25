@@ -22,13 +22,14 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
 
     @Override
     public void onEnable() {
+
         System.out.println("ok");
         getServer().getPluginManager().registerEvents(this, this);
         this.getCommand("npc").setExecutor(new npcCommand(this));
         this.getCommand("party").setExecutor(new duks.feudalismminecraftgame.cmds.Party(this));
 
-        Stream<? extends Player> players = getServer().getOnlinePlayers().stream();
-        players.map(x->(Player)x).forEach(y->artificialPlayerJoin(y));
+        //Stream<? extends Player> players = getServer().getOnlinePlayers().stream();
+        //players.map(x->(Player)x).forEach(y->artificialPlayerJoin(y));
 
         Party.init();
     }
@@ -50,9 +51,6 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         //getServer().broadcastMessage(b+"");
         System.out.println(p.getClass());
 
-        //CraftPlayer craftPlayer = (CraftPlayer) p;
-        Party.removePlayerFromParty(duks.feudalismminecraftgame.Player.findPlayerByUUID(uuid), this);
-
     }
 
     @EventHandler
@@ -66,13 +64,14 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         //party problem
         UUID uuid = player.getUniqueId();
         duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID(uuid);
+        getServer().broadcastMessage("+player");
         if(fPlayer==null){//first time in server
             fPlayer = new duks.feudalismminecraftgame.Player(uuid, this);//register
             Party.addPlayerToParty(fPlayer, null , this);//add to default party
             getServer().broadcastMessage(duks.feudalismminecraftgame.Player.uuidPlayerMap.toString());
         }
         //should have a party otherwise but just in case:
-        if(fPlayer.getParty() == null){
+        else if(fPlayer.getParty() == null){
             Party.addPlayerToParty(fPlayer, null , this);
         }
         getServer().broadcastMessage(fPlayer.getParty().getUUID()+"");
