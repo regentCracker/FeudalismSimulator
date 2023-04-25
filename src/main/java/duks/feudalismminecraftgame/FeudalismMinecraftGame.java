@@ -36,7 +36,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e){
-        Block b = e.getBlock();
+        /*Block b = e.getBlock();
         Player p = e.getPlayer();
         Location l = b.getLocation();
         double x = l.getX();
@@ -47,7 +47,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
 
         //CraftPlayer craftPlayer = (CraftPlayer) p;
         getServer().broadcastMessage("die cvar");
-
+        */
     }
 
     @EventHandler
