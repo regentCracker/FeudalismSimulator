@@ -19,7 +19,6 @@ public class Player {
         this.plugin = plugin;
         this.uuid = uuid;
         uuidPlayerMap.put(uuid, this);//adds to the global dictionary
-        Party.addPlayerToParty(this, null, plugin);
     }
     public void setParty(Party party){
         this.party=party;
