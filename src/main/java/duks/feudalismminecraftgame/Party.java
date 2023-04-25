@@ -55,10 +55,6 @@ public class Party {
         party.inviteeList.add(player);
     }
 
-    static public void addInvitee(duks.feudalismminecraftgame.Player player, Party party){
-        party.inviteeList.add(player);
-    }
-
     //to create a new party use party=null
     static public void addPlayerToParty(duks.feudalismminecraftgame.Player player, Party party, JavaPlugin plugin){
         if(party!=null) {
