@@ -22,7 +22,7 @@ public class Party implements CommandExecutor {
             }
             if(args[0].toLowerCase().equals("leave")){
                 duks.feudalismminecraftgame.Party.removePlayerFromParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ),plugin);
-                sender.sendMessage("you left the clan (only you can see this msg)");
+                sender.sendMessage("you left the party (only you can see this msg)");
             }
             else if(args[0].toLowerCase().equals("join")){
                 if(args.length<=1){
@@ -35,15 +35,14 @@ public class Party implements CommandExecutor {
                 duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId());
                 duks.feudalismminecraftgame.Party party = fPlayer.getParty();
                 duks.feudalismminecraftgame.Party.addPlayerToParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ), party, plugin);
-                sender.sendMessage("added you to the clan (only you can see this msg)");
+                sender.sendMessage("added you to the party (only you can see this msg)");
                 sender.sendMessage(party.getUUID()+"");
             }
             else if (args[0].toLowerCase().equals("list") || args[0].toLowerCase().equals("l")) {
                 duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() );
-                plugin.getServer().broadcastMessage(fPlayer+"");
-                sender.sendMessage("a");
+                duks.feudalismminecraftgame.Party party = fPlayer.getParty();
+                plugin.getServer().broadcastMessage(party.getMembers().toString());
                 String s = fPlayer.getParty().getMembers().toString();
-                plugin.getServer().broadcastMessage("!");
             }
         }
 
