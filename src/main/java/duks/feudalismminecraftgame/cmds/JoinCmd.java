@@ -14,8 +14,12 @@ public class JoinCmd implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
 
+
         if(sender instanceof Player){
-            System.out.println("aaa");
+            plugin.getServer().broadcastMessage(args[0]);
+            plugin.getServer().broadcastMessage(command.toString());
+            plugin.getServer().broadcastMessage(label);
+            System.out.println("aaba");
             plugin.getServer().broadcastMessage("npc moment");
         }
 
