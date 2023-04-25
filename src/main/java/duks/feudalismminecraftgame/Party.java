@@ -4,17 +4,18 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Party {
     private static ArrayList<Party> Parties = new ArrayList<Party>();
     private int UUID = 0;
     private int score;
     private ArrayList<Player> players = new ArrayList<>();
-    private ArrayList<Player> inviteeList = new ArrayList<>();
+    private ArrayList<UUID> inviteeList = new ArrayList<>();
     private JavaPlugin plugin;
 
     public static int counterCreated = 0;
-    
+
     public Party(JavaPlugin plugin){
         this.plugin = plugin;
         this.UUID = counterCreated;
@@ -52,8 +53,8 @@ public class Party {
     static public void init(){
     }
 
-    static public void addInvitee(duks.feudalismminecraftgame.Player player, Party party){
-        party.inviteeList.add(player);
+    static public void addInvitee(UUID playerUUID, Party party){
+        party.inviteeList.add(playerUUID);
     }
 
     //to create a new party use party=null

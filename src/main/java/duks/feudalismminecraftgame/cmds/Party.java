@@ -1,5 +1,7 @@
 package duks.feudalismminecraftgame.cmds;
 
+import java.util.UUID;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -49,12 +51,11 @@ public class Party implements CommandExecutor {
         //invite
         else if(args[0].toLowerCase().equals("invite")){
             String inviteeName = args[1];
-            Player invitee = plugin.getServer().getPlayer(inviteeName);
+            UUID inviteeUUID = plugin.getServer().getPlayer(inviteeName).getUniqueId();
             Player pSender = plugin.getServer().getPlayer(sender.getName());
             duks.feudalismminecraftgame.Player fSender = duks.feudalismminecraftgame.Player.findPlayerByUUID(pSender.getUniqueId());
-            duks.feudalismminecraftgame.Player fInvitee = duks.feudalismminecraftgame.Player.findPlayerByUUID(invitee.getUniqueId());
             duks.feudalismminecraftgame.Party party = fSender.getParty();
-            duks.feudalismminecraftgame.Party.addInvitee(fInvitee, party);
+            duks.feudalismminecraftgame.Party.addInvitee(inviteeUUID, party);
 
             sender.sendMessage("you've invated "+inviteeName+" (only you can see this msg)");
             sender.sendMessage(party.getUUID()+"");
@@ -67,7 +68,7 @@ public class Party implements CommandExecutor {
             plugin.getServer().broadcastMessage(duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId())+"");
             duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId());
             duks.feudalismminecraftgame.Party party = fPlayer.getParty();
-            if(!(party.getInviteeList().contains(fPlayer))){
+            if(!(party.getInviteeList().contains(player.getUniqueId()))){
                 sender.sendMessage("you are not invited to this party (only you can see this msg)");
                 return true;
             }
