@@ -58,7 +58,9 @@ public class Party implements CommandExecutor {
             duks.feudalismminecraftgame.Party.addInvitee(inviteeUUID, party);
 
             sender.sendMessage("you've invated "+inviteeName+" (only you can see this msg)");
+            
             sender.sendMessage(party.getUUID()+"");
+            sender.sendMessage(party.getInviteeList().toString());
         }
         
         //join party
