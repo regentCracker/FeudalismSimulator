@@ -1,6 +1,5 @@
 package duks.feudalismminecraftgame;
 
-import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
@@ -11,11 +10,11 @@ public class Party {
     private int UUID = 0;
     private int score;
     private ArrayList<Player> players = new ArrayList<>();
-    private ArrayList<UUID> inviteeList = new ArrayList<>();
+    private ArrayList<java.util.UUID> inviteeList = new ArrayList<java.util.UUID>();
     private JavaPlugin plugin;
 
     public static int counterCreated = 0;
-
+    
     public Party(JavaPlugin plugin){
         this.plugin = plugin;
         this.UUID = counterCreated;
@@ -39,7 +38,7 @@ public class Party {
         return players;
     }
 
-    public ArrayList<Player> getInviteeList(){
+    public ArrayList<java.util.UUID> getInviteeList(){
         return inviteeList;
     }
     

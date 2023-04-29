@@ -1,12 +1,12 @@
 package duks.feudalismminecraftgame.cmds;
 
-import java.util.UUID;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.UUID;
 
 public class Party implements CommandExecutor {
     JavaPlugin plugin;
@@ -55,14 +55,14 @@ public class Party implements CommandExecutor {
             Player pSender = plugin.getServer().getPlayer(sender.getName());
             duks.feudalismminecraftgame.Player fSender = duks.feudalismminecraftgame.Player.findPlayerByUUID(pSender.getUniqueId());
             duks.feudalismminecraftgame.Party party = fSender.getParty();
-            duks.feudalismminecraftgame.Party.addInvitee(inviteeUUID, party,plugin);
+            duks.feudalismminecraftgame.Party.addInvitee(inviteeUUID, party);
 
             sender.sendMessage("you've invated "+inviteeName+" (only you can see this msg)");
-            
+
             sender.sendMessage(party.getUUID()+"");
             sender.sendMessage(party.getInviteeList().toString());
         }
-        
+
         //join party
         else if(args[0].toLowerCase().equals("join")){
             String playerName = args[1];
