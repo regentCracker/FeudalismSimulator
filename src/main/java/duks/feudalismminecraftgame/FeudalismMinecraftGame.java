@@ -51,6 +51,7 @@ public final class FeudalismMinecraftGame extends JavaPlugin implements Listener
         UUID uuid = p.getUniqueId();
         //getServer().broadcastMessage(b+"");
         System.out.println(p.getClass());
+        ProtocolMethods.writeVarInt(25565);
 
     }
 

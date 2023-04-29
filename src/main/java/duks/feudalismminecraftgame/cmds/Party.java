@@ -30,10 +30,10 @@ public class Party implements CommandExecutor {
 
         //leave party
         if(args[0].toLowerCase().equals("leave")){
-            Player sender = (Player) sender;
-            duks.feudalismminecraftgame.Party party = duks.feudalismminecraftgame.Player.findPlayerByUUID(sender.getUniqueId()).getParty();
+            Player senderPlayer = (Player) sender;
+            duks.feudalismminecraftgame.Party party = duks.feudalismminecraftgame.Player.findPlayerByUUID(senderPlayer.getUniqueId()).getParty();
 
-            duks.feudalismminecraftgame.Party.removePlayerFromParty(duks.feudalismminecraftgame.Player.findPlayerByUUID(sender.getUniqueId()),plugin);
+            duks.feudalismminecraftgame.Party.removePlayerFromParty(duks.feudalismminecraftgame.Player.findPlayerByUUID(senderPlayer.getUniqueId()),plugin);
             sender.sendMessage("you've left the party");
 
             party.echo(sender.getName()+" has left the party");

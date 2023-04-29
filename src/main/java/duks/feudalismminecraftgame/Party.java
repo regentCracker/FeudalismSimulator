@@ -50,7 +50,7 @@ public class Party {
     public void echo(String message){
         for (Player p : players){
             if(p.getPlayer().isOnline()){
-                p.getPlayer().sendMessage(message);
+                ((org.bukkit.entity.Player)p.getPlayer()).sendMessage(message);
             }
         }
     }
