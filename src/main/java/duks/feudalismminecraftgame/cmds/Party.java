@@ -57,7 +57,7 @@ public class Party implements CommandExecutor {
             duks.feudalismminecraftgame.Party party = fSender.getParty();
             duks.feudalismminecraftgame.Party.addInvitee(inviteeUUID, party);
 
-            sender.sendMessage("you've invated "+inviteeName+" (only you can see this msg)");
+            sender.sendMessage("you've invited "+inviteeName+" (only you can see this msg)");
 
             sender.sendMessage(party.getUUID()+"");
             sender.sendMessage(party.getInviteeList().toString());
@@ -70,18 +70,15 @@ public class Party implements CommandExecutor {
             plugin.getServer().broadcastMessage(duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId())+"");
             duks.feudalismminecraftgame.Player fPlayer = duks.feudalismminecraftgame.Player.findPlayerByUUID(player.getUniqueId());
             duks.feudalismminecraftgame.Party party = fPlayer.getParty();
-            plugin.getServer().broadcastMessage("party.getInviteeList().toString():");
-            plugin.getServer().broadcastMessage(party.getInviteeList().toString());
-            plugin.getServer().broadcastMessage("player.getUniqueId().toString()");
-            plugin.getServer().broadcastMessage(player.getUniqueId().toString());
-            Player senderPlayer = (Player) sender;//
-            if(!(party.getInviteeList().contains(senderPlayer.getUniqueId()))){
+
+            if(!(party.getInviteeList().contains(sender.getUniqueId()))){
                 sender.sendMessage("you are not invited to this party (only you can see this msg)");
-                return true;
             }
-            duks.feudalismminecraftgame.Party.addPlayerToParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ), party, plugin);
-            sender.sendMessage("added you to the party (only you can see this msg)");
-            sender.sendMessage(party.getUUID()+"");
+            else{
+                duks.feudalismminecraftgame.Party.addPlayerToParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ), party, plugin);
+                sender.sendMessage("added you to the party (only you can see this msg)");
+                sender.sendMessage(party.getUUID()+"");
+            }
         }
 
         return true;
