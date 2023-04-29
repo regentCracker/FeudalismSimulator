@@ -22,6 +22,11 @@ public class Party {
         this.score = 0;
     }
 
+    @Override
+    public String toString(){
+        return this.getMembers().toString();
+    }
+
     public void addPlayer(Player player){
         players.add(player);
     }
@@ -42,6 +47,14 @@ public class Party {
         return inviteeList;
     }
     
+    public void echo(String message){
+        for (Player p : players){
+            if(p.getPlayer().isOnline()){
+                p.getPlayer().sendMessage(message);
+            }
+        }
+    }
+
     public void Purchuse(){
         /*for (Player p : players){
             p.Purchuse(Cart);
