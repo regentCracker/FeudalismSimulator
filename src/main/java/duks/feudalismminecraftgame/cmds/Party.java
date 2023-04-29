@@ -74,7 +74,7 @@ public class Party implements CommandExecutor {
             plugin.getServer().broadcastMessage(party.getInviteeList().toString());
             plugin.getServer().broadcastMessage("player.getUniqueId().toString()");
             plugin.getServer().broadcastMessage(player.getUniqueId().toString());
-            Player senderPlayer = (Player) sender;
+            Player senderPlayer = (Player) sender;//
             if(!(party.getInviteeList().contains(senderPlayer.getUniqueId()))){
                 sender.sendMessage("you are not invited to this party (only you can see this msg)");
                 return true;
