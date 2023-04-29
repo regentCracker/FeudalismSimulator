@@ -55,7 +55,7 @@ public class Party implements CommandExecutor {
             Player pSender = plugin.getServer().getPlayer(sender.getName());
             duks.feudalismminecraftgame.Player fSender = duks.feudalismminecraftgame.Player.findPlayerByUUID(pSender.getUniqueId());
             duks.feudalismminecraftgame.Party party = fSender.getParty();
-            duks.feudalismminecraftgame.Party.addInvitee(inviteeUUID, party);
+            duks.feudalismminecraftgame.Party.addInvitee(inviteeUUID, party,plugin);
 
             sender.sendMessage("you've invated "+inviteeName+" (only you can see this msg)");
             
