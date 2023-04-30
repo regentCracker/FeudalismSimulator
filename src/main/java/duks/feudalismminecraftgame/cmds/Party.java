@@ -48,7 +48,7 @@ public class Party implements CommandExecutor {
         }
 
         //checks if there are engouth arguments
-        if(args.length<=1){
+        else if(args.length<=1){
             sender.sendMessage("missing arguments");
             return true;
         }
@@ -80,8 +80,8 @@ public class Party implements CommandExecutor {
                 sender.sendMessage("you are not invited to this party");
             }
             else{
-                duks.feudalismminecraftgame.Party.addPlayerToParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ), party, plugin);
                 sender.sendMessage("you joined the party");
+                duks.feudalismminecraftgame.Party.addPlayerToParty(duks.feudalismminecraftgame.Player.findPlayerByUUID( ((Player) sender).getUniqueId() ), party, plugin);
                 party.echo(sender.getName()+" has joined the party");
             }
         }
