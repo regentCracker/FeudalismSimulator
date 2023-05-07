@@ -1,0 +1,19 @@
+name: FeudalismMinecraftGame
+version: '${project.version}'
+main: duks.feudalismminecraftgame.FeudalismMinecraftGame
+api-version: 1.19
+authors: [ 1212duks ]
+description: Feudalism, also known as the feudal system, is a term used to describe the legal, economic, military, cultural and political customs that flourished in medieval Europe between the 9th and 15th centuries.
+commands:
+  npc:
+    description: npc moment
+    usage: /npc
+    permission: yourplugin.yourcommandpermission
+  party:
+    description: join a clan
+    usage: /party join/leave/invite/list
+    permission: yourplugin.yourcommandpermission
+  p:
+    description: join a clan
+    usage: /party join/leave/invite/list
+    permission: yourplugin.yourcommandpermission
