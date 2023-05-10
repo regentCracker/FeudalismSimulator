@@ -22,7 +22,7 @@ public class Party implements CommandExecutor {
             return true;
         }
 
-        //checks if there are engouth arguments
+        //checks if there are enough arguments
         else if(args.length<=0){
             sender.sendMessage("need arguments");
             return true;
@@ -47,7 +47,7 @@ public class Party implements CommandExecutor {
             sender.sendMessage(party.toString());
         }
 
-        //checks if there are engouth arguments
+        //checks if there are enough arguments
         if(args.length<=1){
             sender.sendMessage("missing arguments");
             return true;
