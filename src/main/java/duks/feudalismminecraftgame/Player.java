@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Player {
     private UUID uuid;
-    private double money;
+    private double gold;
     private Party party;
     private ArrayList<Abilities> abilities = new ArrayList<Abilities>();
     private JavaPlugin plugin;
@@ -19,6 +19,19 @@ public class Player {
         this.plugin = plugin;
         this.uuid = uuid;
         uuidPlayerMap.put(uuid, this);//adds to the global dictionary
+    }
+
+    static public Player parsePlayer(OfflinePlayer player){
+        return findPlayerByUUID(player.getUniqueId());
+    }
+
+    public static Player findPlayerByUUID(UUID uuid){
+        if(uuidPlayerMap.containsKey(uuid)){
+            return uuidPlayerMap.get(uuid);
+        }
+        else{
+            return null;
+        }
     }
 
     public void setParty(Party party){
@@ -37,6 +50,10 @@ public class Player {
         }
     }
 
+    public void addGold(double gold){
+        this.gold += gold;
+    }
+    
     public void Purchuse(ArrayList<Purchseable> purchseables){
         int price = 0;
         for (Purchseable p : purchseables){
@@ -57,9 +74,4 @@ public class Player {
     }
 
     public static Map<UUID, Player> uuidPlayerMap = new HashMap<>();//global dictionary with all players' uuid mapped to them.
-    
-    public static Player findPlayerByUUID(UUID uuid){
-        if(uuidPlayerMap.containsKey(uuid)) return uuidPlayerMap.get(uuid);
-        else return null;
-    }
 }
